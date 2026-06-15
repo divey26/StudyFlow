@@ -1,0 +1,37 @@
+{
+  "name": "studyflow-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dagrejs/dagre": "^3.0.0",
+    "@hookform/resolvers": "^3.9.1",
+    "@tanstack/react-query": "^5.62.7",
+    "@xyflow/react": "^12.3.6",
+    "axios": "^1.7.9",
+    "framer-motion": "^11.15.0",
+    "html-to-image": "^1.11.13",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^7.1.1",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}

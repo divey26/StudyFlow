@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum NodeType {
+  TOPIC
+  SUBTOPIC
+  TASK
+  RESOURCE
+  NOTE
+}
+
+model User {
+  id        String    @id @default(uuid())
+  name      String
+  email     String    @unique
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  mindMaps  MindMap[]
+}
+
+model MindMap {
+  id          String        @id @default(uuid())
+  title       String
+  description String?
+  userId      String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nodes       MindMapNode[]
+
+  @@index([userId])
+}
+
+model MindMapNode {
+  id          String   @id @default(uuid())
+  mindMapId   String
+  parentId    String?
+  label       String
+  description String?
+  type        NodeType @default(TOPIC)
+  color       String?
+  xPosition   Float    @default(0)
+  yPosition   Float    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  mindMap     MindMap  @relation(fields: [mindMapId], references: [id], onDelete: Cascade)
+
+  @@index([mindMapId])
+  @@index([parentId])
+}
