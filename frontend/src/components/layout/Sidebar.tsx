@@ -1,6 +1,5 @@
-import { GraduationCap, LayoutDashboard, LogOut, Settings } from 'lucide-react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { GraduationCap, LayoutDashboard, Settings } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -8,9 +7,6 @@ const navItems = [
 ];
 
 export function Sidebar() {
-  const { logout } = useAuth();
-  const navigate = useNavigate();
-
   return (
     <aside className="hidden w-64 shrink-0 border-r border-slate-200 bg-white lg:flex lg:flex-col">
       <div className="flex h-16 items-center gap-2 border-b border-slate-100 px-5">
@@ -35,18 +31,6 @@ export function Sidebar() {
           </NavLink>
         ))}
       </nav>
-      <div className="border-t border-slate-100 p-3">
-        <button
-          className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-950"
-          onClick={() => {
-            logout();
-            navigate('/');
-          }}
-        >
-          <LogOut size={18} />
-          Logout
-        </button>
-      </div>
     </aside>
   );
 }

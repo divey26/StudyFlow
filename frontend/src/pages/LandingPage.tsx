@@ -78,15 +78,9 @@ export function LandingPage() {
           <span className="text-xl font-bold tracking-tight">StudyFlow</span>
         </Link>
         <div className="flex items-center gap-2">
-          <Link
-            to="/login"
-            className="hidden rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 sm:block"
-          >
-            Sign In
-          </Link>
-          <Link to="/register">
+          <Link to="/dashboard">
             <button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800">
-              Start Free
+              Open App
             </button>
           </Link>
         </div>
@@ -113,14 +107,9 @@ export function LandingPage() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <Link to="/register">
+            <Link to="/dashboard">
               <button className="flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-indigo-700">
                 Build My Flow <ArrowRight size={18} />
-              </button>
-            </Link>
-            <Link to="/login">
-              <button className="rounded-lg border border-slate-200 bg-white px-6 py-3 text-base font-semibold text-slate-700 shadow-sm transition hover:bg-slate-100">
-                View Demo
               </button>
             </Link>
           </div>
@@ -244,9 +233,9 @@ export function LandingPage() {
           <p className="mx-auto mt-3 max-w-xl text-indigo-100">
             Turn a topic into a learning path, expand it with AI, and keep every step in one visual workspace.
           </p>
-          <Link to="/register">
+          <Link to="/dashboard">
             <button className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3 text-base font-bold text-indigo-700 shadow-sm transition hover:bg-indigo-50">
-              Start StudyFlow <ArrowRight size={18} />
+              Open StudyFlow <ArrowRight size={18} />
             </button>
           </Link>
         </div>
