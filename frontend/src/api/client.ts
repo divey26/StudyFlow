@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+// In production (Vercel), frontend and backend share the same domain.
+// API requests go to /api/* which Vercel proxies to the serverless function.
+// In local dev, the backend runs separately on port 4000.
+const baseURL = import.meta.env.VITE_API_URL
+  ?? (import.meta.env.PROD ? '' : 'http://localhost:4000');
+
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:4000',
+  baseURL,
 });
 
 apiClient.interceptors.request.use((config) => {
